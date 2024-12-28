@@ -1,19 +1,24 @@
+import React from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import HelloWorld from './components/view/HelloWorld.jsx';
 import LandingPage from './components/view/LandingPage.jsx';
 import SignInPage from './components/view/SignInPage.jsx';
+import NavbarCustom from './components/layout/NavbarCustom.jsx';
 //import ShopPage from './components/view/ShopPage.jsx';
 //import CartPage from './components/view/CartPage.jsx';
 import './index.css';
 
 const App = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const routes = [
     {
       path: '/hello-world',
       component: HelloWorld,
     },
     { 
-      path: '/index', 
+      path: '/', 
       component: LandingPage,
     },
     { 
@@ -44,6 +49,7 @@ const App = () => {
 
   return(
     <>
+      <NavbarCustom />
       {
         <Routes>
           {
